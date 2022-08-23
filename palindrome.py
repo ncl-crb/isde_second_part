@@ -49,4 +49,3 @@ print(built_min_pal)
 print("\n\n\n[CHECK!]\n")
 for s in built_min_pal:
     print(palindrome(s))
-
