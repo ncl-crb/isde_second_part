@@ -6,22 +6,38 @@ Write a function that accepts an integer i, and
 • if no conditions are met, print the number i.
 Test the function with all the numbers between ad .
 """
-def multipleOf3(n):
-    return n % 3 == 0
-def multipleOf5(n):
-    return n % 5 == 0
+def multipleOf(n, d):
+    return n % d == 0
 
-def FizzBuzz(i):
-    if multipleOf3(i) and multipleOf5(i):
+
+def grater_than(n1, n2):
+    return n1 > n2
+
+
+def FizzBuzz(n, v1, v2, function):
+    cond1 = function(n, v1)
+    cond2 = function(n, v2)
+
+    if cond1 and cond2:
         print("FizzBuzz")
-    elif multipleOf3(i):
+    elif cond1:
         print("Fizz")
-    elif multipleOf5(i):
+    elif cond2:
         print("Buzz")
 
     else:
         print(i)
 
 N = 15
+value1 = 3
+value2 = 5
+
+functions = {
+    '1': grater_than,
+    '2': multipleOf}
+
+sel = input(f"insert the type condition: \n{functions}\n ")
+
+print(functions[sel])
 for i in range(1, N + 1):
-    FizzBuzz(i)
+    FizzBuzz(i, value1, value2, functions[sel])
