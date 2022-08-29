@@ -44,7 +44,6 @@ class Square(Rectangle):
         self._b = self._b
 
 
-
 def main():
     print('rectangle')
     r1 = Rectangle(1, 2)
@@ -60,6 +59,7 @@ def main():
     print(s1.a, s1.b)  # 10, 10
     s1.b = 20
     print(s1.a, s1.b)  # 20, 20
+
 
 if __name__ == '__main__':
     main()
