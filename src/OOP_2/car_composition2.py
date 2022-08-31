@@ -1,7 +1,6 @@
 """
-Exercise 2 slides OOP_2 n°29
-"""
-
+Exercise 3 slides OOP_2 """
+import copy
 
 
 class Engine():
@@ -22,8 +21,8 @@ class Seat():
 class Car():
     def __init__(self, engine, wheels, seats):
         self.engine = engine
-        self.seats = seats
-        self.wheels = wheels
+        self.seats = copy.deepcopy(seats)
+        self.wheels = copy.deepcopy(wheels)
 
     @property
     def displacement(self):
@@ -56,6 +55,14 @@ def main():
     car = Car(engine, wheels, seats)
     print('displacement:', car.displacement)
     print('wheel pressure:', car.wheels_pressure)
+    print('n seats:', car.n_seats)
+
+    car2 = Car(engine, wheels, seats)
+    car.wheels[0].pressure = 5
+
+    print('displacement:', car.displacement)
+    print('wheel pressure:', car.wheels_pressure)
+    print('wheel pressure:', car2.wheels_pressure)
     print('n seats:', car.n_seats)
 
 
