@@ -35,6 +35,7 @@ if __name__ == '__main__':
     nums2 = [1, 13, 10, 1, 13, 13, 13, 10, 1]
     nums3 = [13, 10, 1, 13, 13, 13, 10, 1]
 
+
     s = SkipWithState(13)
     for el in nums1:
         s.process_input(el)

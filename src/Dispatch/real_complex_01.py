@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class MathEntity(ABC):
-    pass
 
     # first dispatch
     @abstractmethod
