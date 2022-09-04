@@ -1,5 +1,5 @@
 # COMPLETE THE CODE
-from printer import Printer, PrinterTransT
+from printer import Printer, PrinterTransTable
 
 if __name__ == '__main__':
     ## COMPLETE THE CODE!
@@ -11,9 +11,10 @@ if __name__ == '__main__':
     for el in elements:
         p.process(el)
 
+
     print("\n\n")
 
-    p = PrinterTransT()
+    p = PrinterTransTable()
 
     for el in elements:
         p.process(el)

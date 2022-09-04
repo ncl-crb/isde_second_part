@@ -3,86 +3,53 @@ from abc import ABC, abstractmethod
 
 class Shape(ABC):
 
-    @property
-    def shape(self):
-        return self._shape
-
-    @shape.setter
-    def shape(self, shape):
-        self._shape = shape
-
     @abstractmethod
-    def draw(self):
+    def draw_on_display1(self, display):
         pass
 
-    @abstractmethod
-    def draw_on_d1(self):
+    def draw_on_display2(self, display):
         pass
 
-    @abstractmethod
-    def draw_on_d2(self):
-        pass
 
 class Rectangle(Shape):
-    def __init__(self, shape):
-        self.shape = shape
+    def __init__(self, name):
+        self.name = name
 
+    def draw_on_display1(self, display):
+        print('draw the rectangle  ' + self.name + '  into the display of type 1 : ' + display.name)
 
-    def draw(self):
-        return 'draw the rectangle  ' + self._shape
-
-
-    def draw_on_d1(self):
-        return 'draw the rectangle  ' + self._shape
-
-
-    def draw_on_d2(self):
-        return 'draw the rectangle  ' + self._shape
+    def draw_on_display2(self, display):
+        print('draw the rectangle  ' + self.name + '  into the display of type 2 : ' + display.name)
 
 
 class Circle(Shape):
-    def __init__(self, shape):
-        self.shape = shape
+    def __init__(self, name):
+        self.name = name
 
-    def draw(self):
-        pass
+    def draw_on_display1(self, display):
+        print('draw the circle  ' + self.name + '  into the display of type 1 : ' + display.name)
 
-    def draw_on_d1(self):
-        return 'draw the circle  ' + self._shape
-
-
-    def draw_on_d2(self):
-        return 'draw the circle  ' + self._shape
+    def draw_on_display2(self, display):
+        print('draw the circle  ' + self.name + '  into the display of type 2 : ' + display.name)
 
 
 class Display(ABC):
-    def __init__(self, display):
-        self.display = display
-
-    @property
-    def display(self):
-        return self._display
-
-    @display.setter
-    def display(self, display):
-        self._display = display
-
     @abstractmethod
     def draw(self, shape):
         pass
 
 
 class Display1(Display):
-    def __init__(self, display):
-        super().__init__(display)
+    def __init__(self, name):
+        self.name = name
 
     def draw(self, shape):
-        print(shape.draw_on_d1() + 'into the display of type 1 : ' + self._display)
+        shape.draw_on_display1(self)
 
 
 class Display2(Display):
-    def __init__(self, display):
-        super().__init__(display)
+    def __init__(self, name):
+        self.name = name
 
     def draw(self, shape):
-       print(shape.draw_on_d2() + 'into the display of type 1 : ' + self._display)
+        shape.draw_on_display2(self)

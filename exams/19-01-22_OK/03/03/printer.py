@@ -34,9 +34,10 @@ class Strategy2(Strategy):  # weekend
 
 
 
-class Printer:
-    def __init__(self, strategy):
-        self.processor = strategy
+class Printer():
+    def __init__(self, strategy=Strategy1()):
+        self._processor = strategy
+        self.observers = set()
 
     @property
     def processor(self):
@@ -44,7 +45,11 @@ class Printer:
 
     @processor.setter
     def processor(self, value):
-        self._processor = value
+        if value != self._processor:
+            self.dispatch()
+            self._processor = value
+        else:
+            self._processor = value
 
     def process_1(self, el):
         self._processor.process_1(el)
@@ -52,6 +57,19 @@ class Printer:
     def process_2(self, el):
         self._processor.process_2(el)
 
+    def register(self, obs):
+        self.observers.add(obs)
+    def unregister(self, obs):
+        self.observers.remove(obs)
+
+    def dispatch(self):
+        for obs in self.observers:
+            obs.update()
+
 
 class Observer:
-    pass
+    def __init__(self, name):
+        self.name = name
+
+    def update(self):
+        print(self.name + ' -> New Strategy!')

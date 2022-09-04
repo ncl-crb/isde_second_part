@@ -109,3 +109,41 @@ if __name__ == '__main__':
     print('TRANSITION TABLE')
     for el in elements:
         pt.process_with_table(el)
+
+""" OUTPUT:
+
+
+MONDAY - FRIDAY
+a
+A
+B
+B
+3
+3
+
+
+
+SATURDAY - SUNDAY
+s2 ->  New Strategy!
+s1 ->  New Strategy!
+A
+a  ASCII ->  97
+B
+B  ASCII ->  66
+3  -> IT IS A NUMBER!
+3  ASCII ->  51
+
+
+
+MONDAY - FRIDAY
+s2 ->  New Strategy!
+a
+A
+B
+B
+3
+3
+
+
+
+"""

@@ -6,7 +6,7 @@ if __name__ == '__main__':
     ## COMPLETE THE CODE!
     print("\n\n")
 
-    p = Printer(Strategy1())
+    p = Printer()
     print(p.__dict__)
     elements = ['a', 'B', '3']
 
